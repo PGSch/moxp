@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOXP - The Future of Digital Currency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+    <header class="bg-indigo-600 text-white py-4 md:py-6">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="flex items-center text-xl font-semibold">
+                <span class="mr-2">🚀</span> <span class="font-bold">MOXP</span>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="hover:text-indigo-200 transition duration-300">About</a></li>
+                    <li><a href="#features" class="hover:text-indigo-200 transition duration-300">Features</a></li>
+                    <li><a href="#technology" class="hover:text-indigo-200 transition duration-300">Technology</a></li>
+                    <li><a href="#get-moxp" class="hover:text-indigo-200 transition duration-300">Get MOXP</a></li>
+                </ul>
+            </nav>
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Navigation">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50">
+        <div class="bg-gray-800 w-80 h-full absolute right-0 p-6">
+            <div class="flex justify-end mb-4">
+                <button id="mobile-menu-close-btn" class="text-white focus:outline-none" aria-label="Close Mobile Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="block">
+                <ul class="space-y-4">
+                    <li><a href="#about" class="block text-lg text-white hover:text-indigo-200 transition duration-300">About</a></li>
+                    <li><a href="#features" class="block text-lg text-white hover:text-indigo-200 transition duration-300">Features</a></li>
+                    <li><a href="#technology" class="block text-lg text-white hover:text-indigo-200 transition duration-300">Technology</a></li>
+                    <li><a href="#get-moxp" class="block text-lg text-white hover:text-indigo-200 transition duration-300">Get MOXP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-indigo-600 dark:text-indigo-400 mb-4">
+                MOXP - The Future of Decentralized Finance
+            </h1>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+                A revolutionary cryptocurrency designed for fast, secure, and borderless transactions.
+            </p>
+            <a href="#get-moxp" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+                Get Started with MOXP
+            </a>
+        </section>
+
+        <section id="about" class="mb-12">
+            <h2 class="text-3xl font-semibold text-gray-800 dark:text-white text-center mb-6">About MOXP</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        MOXP is a cutting-edge cryptocurrency built with a focus on scalability, security, and decentralization.  It leverages the latest blockchain technology to provide a robust and efficient platform for digital transactions. Our mission is to empower individuals with financial freedom and revolutionize the way the world interacts with money.
+                    </p>
+                    <ul class="list-disc list-inside mt-4 text-gray-700 dark:text-gray-300">
+                        <li>Decentralized and open-source</li>
+                        <li>Fast and low-cost transactions</li>
+                        <li>Secure and transparent blockchain</li>
+                        <li>Community-driven development</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://placehold.co/600x400/EEE/31343C" alt="About MOXP" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="bg-gray-200 dark:bg-gray-800 py-12 rounded-lg">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-semibold text-gray-800 dark:text-white text-center mb-6">Key Features</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">Fast Transactions</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            MOXP enables near-instantaneous transactions, making it ideal for everyday use.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">Low Fees</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Enjoy minimal transaction fees, making MOXP cost-effective for global payments.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">High Security</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            MOXP's advanced cryptography ensures the security of your funds.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">Scalability</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                           Designed to handle a high volume of transactions, ensuring smooth performance.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">Decentralization</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Operates on a decentralized network, free from central control.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">Open Source</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Transparent and open-source code, fostering community development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="technology" class="mb-12">
+            <h2 class="text-3xl font-semibold text-gray-800 dark:text-white text-center mb-6">Powered by Advanced Technology</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        MOXP is built on a custom-designed blockchain architecture that ensures optimal performance and security.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                        <li>Innovative consensus mechanism</li>
+                        <li>Layered architecture for scalability</li>
+                        <li>Advanced smart contract capabilities</li>
+                        <li>Optimized for energy efficiency</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center">
+                     <img src="https://placehold.co/600x400/EEE/31343C" alt="MOXP Technology" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <section id="get-moxp" class="bg-indigo-100 dark:bg-indigo-900 py-12 rounded-lg text-center">
+            <h2 class="text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-6">Get Your MOXP Today</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+                Join the future of finance.  Get MOXP from leading exchanges or participate in our community initiatives.
+            </p>
+            <div class="flex justify-center">
+                <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+                    Buy MOXP Now
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 dark:bg-gray-800 py-4">
+        <div class="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
+            &copy; {new Date().getFullYear()} MOXP. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuCloseBtn = document.getElementById("mobile-menu-close-btn");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const closeIcon = document.getElementById("close-icon");
+        const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle("hidden");
+            hamburgerIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+        }
+
+        hamburgerBtn.addEventListener("click", toggleMobileMenu);
+        mobileMenuCloseBtn.addEventListener("click", toggleMobileMenu);
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener("click", toggleMobileMenu);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && event.target !== hamburgerBtn) {
+                toggleMobileMenu();
+            }
+        });
+
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
