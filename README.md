@@ -1,6 +1,6 @@
 # MOXP
 
-Welcome to the MOXP project, a fictional and parody project.  
+Welcome to the MOXP project (https://pgsch.github.io/moxp/), a fictional and parody project.  
 This project is a satirical take on modern tech ideas and is intentionally vague about its purpose.
 
 ## Overview
