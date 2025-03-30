@@ -761,5 +761,24 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         });
     </script>
+    <div style="position: fixed; bottom: 20px; left: 20px; z-index: 1000;">
+        <a href="index.html" style="
+            background: transparent;
+            border: 2px solid #0ff;
+            color: #0ff;
+            padding: 10px 20px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 3px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        "
+        onmouseover="this.style.background='rgba(0,255,255,0.2)'; this.style.boxShadow='0 0 15px rgba(0,255,255,0.7)';"
+        onmouseout="this.style.background='transparent'; this.style.boxShadow='0 0 10px rgba(0,255,255,0.5)';">
+            ⬅ Back to MOXP
+        </a>
+    </div>
 </body>
 </html>
