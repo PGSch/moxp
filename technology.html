@@ -1,37 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MYMLL15YTC"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MYMLL15YTC');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOXP - technology</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>MOXP - Technology</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.png" type="image/png">
-    </head>
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      body {
+        font-family: 'Inter', sans-serif;
+        @apply bg-gray-900 text-gray-300 antialiased;
+      }
+      .fade-in-section {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .logo-img {
+        background-color: #111827;
+      }
+    </style>
+</head>
 <body>
-    <header>
-        <h1><a href="index.html">MOXP</a></h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="technology.html">Technology</a></li>
-                <li><a href="community.html">Community</a></li>
-                <li><a href="get-moxp.html">Get MOXP</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="bg-gray-900 text-white py-4 md:py-5 sticky top-0 z-40 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-xl font-semibold group">
+                <span class="mr-2">
+                    <img src="images/supernovablackhole_red.png" alt="MOXP logo" class="h-8 w-8 inline-block logo-img rounded-full">
+                </span>
+                <span class="font-bold group-hover:text-indigo-300 transition-colors duration-300">MOXP</span>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6 lg:space-x-8">
+                    <li><a href="about.html" class="hover:text-indigo-300 transition-colors duration-300 font-medium">About</a></li>
+                    <li><a href="features.html" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Features</a></li>
+                    <li><a href="technology.html" class="text-indigo-300 font-semibold">Technology</a></li>
+                    <li><a href="community.html" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Community</a></li>
+                    <li><a href="get-moxp.html" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Get MOXP</a></li>
+                    <li><a href="contact.html" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Navigation">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
     </header>
 
-    <main>
-        <h2>technology</h2>
-        <p>Content for the MOXP technology page.</p>
-        </main>
+    <main class="container mx-auto px-4 py-16 md:py-20">
+        <section class="text-center mb-16 md:mb-20 fade-in-section">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">The Technology Behind MOXP</h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+                Explore the technical foundation that powers MOXP — from consensus mechanisms to smart contract infrastructure.
+            </p>
+        </section>
 
-    <footer>
-        <p>&copy; 2025 MOXP. All rights reserved.</p>
-        </footer>
+        <div class="space-y-16 md:space-y-20">
 
-    <script src="js/main.js"></script>
+            <section class="p-8 md:p-12 bg-gray-800 rounded-xl shadow-lg fade-in-section">
+                <h2 class="text-3xl font-semibold text-white mb-5">Consensus Engine: Proof of Efficiency</h2>
+                <div class="prose prose-invert lg:prose-xl max-w-none text-gray-300">
+                    <p>MOXP introduces a novel Proof of Efficiency consensus model that blends deterministic finality with energy-conscious validation. This reduces network resource consumption without compromising security or decentralization.</p>
+                </div>
+            </section>
+
+            <section class="p-8 md:p-12 bg-gray-800 rounded-xl shadow-lg fade-in-section">
+                <h2 class="text-3xl font-semibold text-white mb-5">Smart Contracts & VM</h2>
+                <div class="prose prose-invert lg:prose-xl max-w-none text-gray-300">
+                    <p>MOXP supports high-performance smart contracts via a dedicated MOXP Virtual Machine (MVM) optimized for parallel processing. Developers can deploy logic-intensive decentralized apps (dApps) with minimal latency.</p>
+                </div>
+            </section>
+
+            <section class="p-8 md:p-12 bg-gray-800 rounded-xl shadow-lg fade-in-section">
+                <h2 class="text-3xl font-semibold text-white mb-5">Modular Architecture</h2>
+                <div class="prose prose-invert lg:prose-xl max-w-none text-gray-300">
+                    <p>From its core layer to its extensible middleware, MOXP is built modularly to adapt quickly to future technological advancements and domain-specific customizations. Interoperability and upgradability are native features.</p>
+                </div>
+            </section>
+
+            <section class="p-8 md:p-12 bg-gray-800 rounded-xl shadow-lg fade-in-section">
+                <h2 class="text-3xl font-semibold text-white mb-5">Interchain Compatibility</h2>
+                <div class="prose prose-invert lg:prose-xl max-w-none text-gray-300">
+                    <p>MOXP is designed to seamlessly interface with other blockchain ecosystems through advanced cross-chain protocols. This ensures asset portability and ecosystem-wide composability for dApps and services.</p>
+                </div>
+            </section>
+
+        </div>
+
+        <section class="text-center mt-16 md:mt-20 fade-in-section">
+            <h3 class="text-2xl md:text-3xl font-semibold text-white mb-6">Discover MOXP in Action</h3>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                Visit the community section to see how developers, enterprises, and enthusiasts are using MOXP to build the future.
+            </p>
+            <a href="community.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                Join the Community
+            </a>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 py-8 mt-16">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            <div class="mb-4 space-x-6">
+                <a href="about.html" class="hover:text-gray-300 transition-colors duration-300">About</a>
+                <a href="features.html" class="hover:text-gray-300 transition-colors duration-300">Features</a>
+                <a href="community.html" class="hover:text-gray-300 transition-colors duration-300">Community</a>
+                <a href="contact.html" class="hover:text-gray-300 transition-colors duration-300">Contact</a>
+                <a href="get-moxp.html" class="hover:text-gray-300 transition-colors duration-300">Get MOXP</a>
+            </div>
+            &copy; 2025 MOXP. All rights reserved. Built with ❤️.
+        </div>
+    </footer>
 </body>
 </html>
