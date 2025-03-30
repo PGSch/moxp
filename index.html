@@ -15,25 +15,24 @@
     <link rel="icon" href="images/supernovablackhole_red.png" type="image/png">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
-      body {
-        font-family: 'Inter', sans-serif;
-        @apply bg-gray-900 text-gray-300 antialiased;
-      }
-      /* Simple fade-in animation */
-      .fade-in-section {
-        opacity: 1; /* Set default opacity to 1 to ensure visibility */
-        transform: translateY(0); /* Set default transform to 0 */
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      }
-      .fade-in-section.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      /* Ensure logo background matches header in dark mode */
-      .logo-img {
-        background-color: #111827; /* bg-gray-900 */
-      }
-    </style>
+        body {
+          font-family: 'Inter', system-ui, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif;
+          @apply bg-gray-900 text-gray-300 antialiased;
+        }
+        .fade-in-section {
+          opacity: 1;
+          transform: translateY(0);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .logo-img {
+          background-color: #111827;
+        }
+      </style>
+      
 </head>
 <body>
     <header class="bg-gray-900 text-white py-4 md:py-5 fixed top-0 w-full z-50 shadow-md">
@@ -96,9 +95,18 @@
             <p class="text-xl md:text-2xl text-gray-400 mb-10">
                 everything.
             </p>
-            <a href="#get-moxp" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
-                Get Started with MOXP
-            </a>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="#get-moxp" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
+                    Get Started with MOXP
+                </a>
+                <a href="pong.html" class="inline-flex items-center justify-center gap-2 bg-pink-600 hover:bg-pink-700 text-white font-extrabold tracking-wider py-3 px-8 rounded-full text-lg uppercase transition-transform duration-300 transform hover:scale-110 shadow-lg hover:shadow-pink-400/40">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 9H3a2 2 0 00-2 2v2a6 6 0 006 6h10a6 6 0 006-6v-2a2 2 0 00-2-2zm-3 3h-2v2h-2v-2h-2v-2h2V8h2v2h2v2zM6 14a1 1 0 110-2 1 1 0 010 2zm-2-1a1 1 0 100 2 1 1 0 000-2z"/>
+
+                    </svg>
+                    Play Pong
+                </a>
+            </div>
         </section>
 
         <section id="about" class="py-16 md:py-20 fade-in-section">
