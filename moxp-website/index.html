@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MYMLL15YTC"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MYMLL15YTC');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOXP - everything.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/supernovablackhole_red.png">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      body {
+        font-family: 'Inter', sans-serif;
+        @apply bg-gray-900 text-gray-300 antialiased;
+      }
+      /* Simple fade-in animation */
+      .fade-in-section {
+        opacity: 1; /* Set default opacity to 1 to ensure visibility */
+        transform: translateY(0); /* Set default transform to 0 */
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Ensure logo background matches header in dark mode */
+      .logo-img {
+        background-color: #111827; /* bg-gray-900 */
+      }
+    </style>
+</head>
+<body>
+    <header class="bg-gray-900 text-white py-4 md:py-5 fixed top-0 w-full z-50 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-xl font-semibold group">
+                <span class="mr-2">
+                    <img src="images/supernovablackhole_red.png" alt="MOXP logo" class="h-8 w-8 inline-block logo-img rounded-full">
+                </span>
+                <span class="font-bold group-hover:text-indigo-300 transition-colors duration-300">MOXP</span>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="index.html#about" class="hover:text-indigo-300 transition-colors duration-300 font-medium">About</a></li>
+                    <li><a href="features.html" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Features</a></li>
+                    <li><a href="index.html#technology" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Technology</a></li>
+                    <li><a href="index.html#community" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Community</a></li>
+                    <li><a href="index.html#get-moxp" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Get MOXP</a></li>
+                    <li><a href="index.html#contact" class="hover:text-indigo-300 transition-colors duration-300 font-medium">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Navigation">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black bg-opacity-60 z-40 transition-opacity duration-300 ease-in-out"></div>
+    <div id="mobile-menu" class="hidden fixed top-0 right-0 w-72 h-full bg-gray-800 z-50 shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+            <div class="flex justify-end mb-8">
+                <button id="mobile-menu-close-btn" class="text-white focus:outline-none" aria-label="Close Mobile Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-6">
+                    <li><a href="index.html#about" class="block text-xl text-white hover:text-indigo-300 transition-colors duration-300 font-medium mobile-link">About</a></li>
+                    <li><a href="features.html" class="block text-xl text-white hover:text-indigo-300 transition-colors duration-300 font-medium mobile-link">Features</a></li>
+                    <li><a href="index.html#technology" class="block text-xl text-white hover:text-indigo-300 transition-colors duration-300 font-medium mobile-link">Technology</a></li>
+                    <li><a href="index.html#community" class="block text-xl text-white hover:text-indigo-300 transition-colors duration-300 font-medium mobile-link">Community</a></li>
+                    <li><a href="index.html#get-moxp" class="block text-xl text-white hover:text-indigo-300 transition-colors duration-300 font-medium mobile-link">Get MOXP</a></li>
+                    <li><a href="index.html#contact" class="block text-xl text-white hover:text-indigo-300 transition-colors duration-300 font-medium mobile-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4">
+        <section class="text-center py-20 md:py-28 bg-gradient-to-b from-gray-900 to-gray-800 rounded-b-xl -mt-1 fade-in-section">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-5">
+                MOXP
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-10">
+                everything.
+            </p>
+            <a href="#get-moxp" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
+                Get Started with MOXP
+            </a>
+        </section>
+
+        <section id="about" class="py-16 md:py-20 fade-in-section">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="prose prose-invert lg:prose-xl max-w-none"> <p class="text-lg leading-relaxed text-gray-300">
+                        MOXP represents a paradigm shift in how organizations can approach integrated system dynamics. It’s often described as a multifaceted framework that bridges conventional methodologies with next-generation strategies, enabling smoother interactions across various operational domains.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-300 mt-4">
+                        At its essence, MOXP brings together a host of strategic components, aligning traditional process management with the agile responsiveness demanded by modern enterprises. By incorporating layers of adaptive architecture, it facilitates a harmonious interplay between core functionalities and emerging trends. In practice, MOXP enables teams to rethink their approach to resource allocation and workflow orchestration, promoting a mindset that values both scalability and innovation.
+                    </p>
+                    <ul class="mt-6 text-lg list-disc list-outside ml-5 space-y-2 text-gray-300">
+                        <li>Decentralized and open-source</li>
+                        <li>Fast and low-cost</li>
+                        <li>Secure and transparent</li>
+                        <li>Community-driven</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center items-center">
+                    <img src="images/universe.jpg" alt="Abstract representation of MOXP concept" class="rounded-xl shadow-xl max-w-full h-auto">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="bg-gray-800 py-16 md:py-20 rounded-xl fade-in-section">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-semibold text-white text-center mb-12">Key Features</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-700 rounded-lg shadow-lg p-8 flex flex-col justify-between transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white mb-3">Fast</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                MOXP enables near-instantaneous use, optimizing efficiency.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg shadow-lg p-8 flex flex-col justify-between transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div>
+                           <h3 class="text-2xl font-semibold text-white mb-3">Low Fees</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                Enjoy minimal fees, making MOXP cost-effective for global usage.
+                            </p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-700 rounded-lg shadow-lg p-8 flex flex-col justify-between transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div>
+                           <h3 class="text-2xl font-semibold text-white mb-3">High Security</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                MOXP's advanced cryptography ensures your operations are secure.
+                            </p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-700 rounded-lg shadow-lg p-8 flex flex-col justify-between transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div>
+                           <h3 class="text-2xl font-semibold text-white mb-3">Scalability</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                               Designed to handle high volumes, ensuring smooth performance as you grow.
+                            </p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-700 rounded-lg shadow-lg p-8 flex flex-col justify-between transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div>
+                           <h3 class="text-2xl font-semibold text-white mb-3">Decentralization</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                Operates on a decentralized network, enhancing resilience and autonomy.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg shadow-lg p-8 flex flex-col justify-between transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                       <div>
+                           <h3 class="text-2xl font-semibold text-white mb-3">Open Source</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                Transparent and open-source code, fostering community trust and development.
+                            </p>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="technology" class="py-16 md:py-20 fade-in-section">
+            <h2 class="text-4xl font-semibold text-white text-center mb-12">Powered by Advanced Technology</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:order-2 prose prose-invert lg:prose-xl max-w-none">
+                     <p class="text-lg leading-relaxed text-gray-300 mb-6">
+                        Ultimately, MOXP is celebrated for its conceptual versatility—it offers a framework that seems to unlock a range of possibilities, inspiring both technical teams and strategic leaders to explore new operational frontiers without being confined to traditional paradigms.
+                    </p>
+                    <ul class="text-lg list-disc list-outside ml-5 space-y-2 text-gray-300">
+                        <li>Innovative consensus mechanism</li>
+                        <li>Layered architecture for scalability</li>
+                        <li>Advanced smart capabilities</li>
+                        <li>Optimized for efficiency and speed</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center items-center md:order-1">
+                    <img src="images/supernovablackhole_red.png" alt="MOXP Technology Abstract" class="rounded-xl shadow-xl max-w-xs h-auto bg-gray-800 p-4">
+                </div>
+            </div>
+        </section>
+
+        <section id="get-moxp" class="bg-gray-800 py-16 md:py-20 rounded-xl text-center fade-in-section mb-16">
+             <h2 class="text-4xl font-semibold text-white mb-5">Get Your MOXP Today</h2>
+             <p class="text-xl text-gray-400 mb-10">
+                Join the future. MOXP - everything.
+            </p>
+            <div class="flex justify-center">
+                <a href="https://gmgn.ai/sol/token/3YxAgDfv_7oS2xUp8UjdwuFQwn9iCwVrjeh4Qxvdc9yySuVmEpump" target="_blank" rel="noopener noreferrer" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
+                    Get $MOXP Now
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 py-6 mt-16">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            &copy; 2025 MOXP. All rights reserved. Built with ❤️.
+            </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuCloseBtn = document.getElementById("mobile-menu-close-btn");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const closeIcon = document.getElementById("close-icon");
+        const mobileMenuLinks = mobileMenu.querySelectorAll(".mobile-link");
+
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuOverlay.classList.remove('hidden');
+                // Delay adding visible classes to allow transition
+                requestAnimationFrame(() => {
+                    mobileMenu.classList.remove('translate-x-full');
+                    mobileMenuOverlay.classList.remove('opacity-0');
+                    mobileMenuOverlay.classList.add('opacity-100'); // Use opacity-100 or your desired opacity class
+                });
+                hamburgerIcon.classList.add("hidden");
+                closeIcon.classList.remove("hidden");
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenuOverlay.classList.remove('opacity-100');
+                mobileMenuOverlay.classList.add('opacity-0');
+                 // Wait for transition to finish before hiding
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuOverlay.classList.add('hidden');
+                }, 300); // Match transition duration
+                hamburgerIcon.classList.remove("hidden");
+                closeIcon.classList.add("hidden");
+            }
+        }
+
+        hamburgerBtn.addEventListener("click", toggleMobileMenu);
+        mobileMenuCloseBtn.addEventListener("click", toggleMobileMenu);
+        mobileMenuOverlay.addEventListener("click", toggleMobileMenu); // Close on overlay click
+
+        // Close menu when a link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener("click", toggleMobileMenu);
+        });
+
+        // --- Intersection Observer for Fade-in Sections ---
+        const sections = document.querySelectorAll('.fade-in-section');
+
+        const observerOptions = {
+          root: null, // relative to document viewport
+          rootMargin: '0px',
+          threshold: 0.1 // trigger when 10% of the element is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              // Optional: Unobserve after animation to save resources
+              // observer.unobserve(entry.target);
+            }
+            // Optional: else { entry.target.classList.remove('is-visible'); } // Re-animate every time
+          });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+
+    </script>
+</body>
+</html>
