@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MOXP Protocol - Next generation DeFi platform with unprecedented yield opportunities and institutional-grade security">
+    <meta name="keywords" content="MOXP, DeFi, blockchain, cryptocurrency, finance, staking, yield farming">
+    <meta property="og:title" content="MOXP Protocol | Next-Gen DeFi Platform">
+    <meta property="og:description" content="Reimagining decentralized finance with cutting-edge blockchain technology">
+    <meta property="og:image" content="images/supernovablackhole_red.png">
+    
     <title>MOXP Protocol | Next-Gen DeFi Platform</title>
+    
+    <!-- Preload important resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Space+Mono&display=swap" as="style">
+    <link rel="preload" href="images/supernovablackhole_red.png" as="image">
+    <link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/supernovablackhole_red.png" type="image/png">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Space+Mono&display=swap');
@@ -16,20 +33,20 @@
             --light: #e0e4ff;
             --accent: #ff3864;
             --neon-glow: 0 0 10px rgba(110, 66, 229, 0.7);
+            --header-height: 80px;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        html {
+            scroll-behavior: smooth;
         }
-        
+
         body {
             font-family: 'Kanit', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             overflow-x: hidden;
             position: relative;
+            padding-top: var(--header-height);
         }
         
         body::before {
@@ -57,12 +74,24 @@
         
         /* Header */
         header {
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 100;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            background-color: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(10, 11, 31, 0.85);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
         .logo {
@@ -143,8 +172,8 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(110, 66, 229, 0.7);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 25px rgba(110, 66, 229, 0.8);
         }
         
         .btn-outline {
@@ -154,8 +183,10 @@
         }
         
         .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-2px);
         }
         
         .mobile-menu-btn {
@@ -169,7 +200,7 @@
         
         /* Hero Section */
         .hero {
-            padding: 5rem 5% 8rem;
+            padding: 6rem 5% 8rem;
             display: flex;
             align-items: center;
             position: relative;
@@ -257,7 +288,7 @@
                 transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(-20px) rotate(5deg);
+                transform: translateY(-25px) rotate(7deg);
             }
         }
         
@@ -267,6 +298,14 @@
             background-color: var(--darker);
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .features.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .section-header {
@@ -315,9 +354,13 @@
         }
         
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(110, 66, 229, 0.3);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary);
+        }
+        
+        .feature-card:hover::before {
+            background: linear-gradient(135deg, rgba(110, 66, 229, 0.2) 0%, transparent 70%);
         }
         
         .feature-icon {
@@ -350,6 +393,14 @@
         .tokenomics {
             padding: 6rem 5%;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .tokenomics.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .tokenomics-container {
@@ -362,12 +413,6 @@
             flex: 1;
             position: relative;
             min-height: 400px;
-        }
-        
-        .chart {
-            width: 100%;
-            height: 100%;
-            position: relative;
         }
         
         .chart-circle {
@@ -444,6 +489,14 @@
         .roadmap {
             padding: 6rem 5%;
             background-color: var(--darker);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .roadmap.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .timeline {
@@ -531,6 +584,14 @@
         /* Team */
         .team {
             padding: 6rem 5%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .team.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .team-grid {
@@ -548,8 +609,8 @@
         }
         
         .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
         }
         
         .member-image {
@@ -604,6 +665,14 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .cta.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .cta::before {
@@ -634,6 +703,14 @@
             background-color: var(--darker);
             padding: 4rem 5% 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        footer.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .footer-grid {
@@ -724,110 +801,14 @@
             opacity: 0.7;
         }
         
-        /* Animations */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-        
-        .pulse {
-            animation: pulse 3s infinite;
-        }
-        
         /* Responsive */
-        @media (max-width: 992px) {
-            .hero-token {
-                width: 300px;
-                height: 300px;
-            }
-            
-            .token-3d {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-        }
-        
         @media (max-width: 768px) {
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background-color: var(--darker);
-                flex-direction: column;
-                padding: 2rem;
-                transition: right 0.3s ease;
-                z-index: 1000;
+            body {
+                padding-top: 60px;
             }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                margin-top: 2rem;
-            }
-            
-            .header-btns {
-                margin-top: auto;
-                flex-direction: column;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                z-index: 1001;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-bottom: 4rem;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-                margin-bottom: 3rem;
-            }
-            
-            .hero-btns, .hero-stats {
-                justify-content: center;
-            }
-            
-            .hero-token {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                margin: 0 auto;
-            }
-            
-            .tokenomics-container {
-                flex-direction: column;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding: 0 0 1.5rem 2rem !important;
-                text-align: left !important;
-            }
-            
-            .timeline-item::after {
-                left: -10px !important;
-            }
-            
-            .timeline::before {
-                left: 0;
+            header {
+                height: 60px;
+                padding: 0.5rem 5%;
             }
         }
         
@@ -1177,10 +1158,21 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
+            const header = document.querySelector('header');
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const nav = document.getElementById('nav');
-            
+            const sections = document.querySelectorAll('section, footer');
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
             mobileMenuBtn.addEventListener('click', function() {
                 nav.classList.toggle('active');
                 const icon = this.querySelector('i');
@@ -1195,195 +1187,210 @@
                 }
             });
             
-            // Close menu when clicking a link
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    nav.classList.remove('active');
-                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                    document.body.style.overflow = '';
-                });
-            });
-            
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Animated token
-            const token3d = document.querySelector('.token-3d');
-            window.addEventListener('mousemove', (e) => {
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                
-                token3d.style.transform = `rotateX(${y * 30 - 15}deg) rotateY(${x * 30 - 15}deg) translateY(${y * 20 - 10}px)`;
-            });
-            
-            // Animated chart segments
-            const chartCircle = document.querySelector('.chart-circle');
-            const segments = [
-                { percent: 25, color: '#6e42e5' },
-                { percent: 20, color: '#38dcff' },
-                { percent: 20, color: '#ff3864' },
-                { percent: 15, color: '#7b42e5' },
-                { percent: 20, color: '#2d8fff' }
-            ];
-            
-            let currentPercent = 0;
-            segments.forEach(seg => {
-                const segEl = document.createElement('div');
-                segEl.style.position = 'absolute';
-                segEl.style.top = '0';
-                segEl.style.left = '0';
-                segEl.style.width = '100%';
-                segEl.style.height = '100%';
-                segEl.style.borderRadius = '50%';
-                segEl.style.background = `conic-gradient(${seg.color} ${currentPercent}% ${currentPercent + seg.percent}%, transparent ${currentPercent + seg.percent}% 100%)`;
-                segEl.style.transition = 'background 1.5s ease';
-                chartCircle.appendChild(segEl);
-                
-                currentPercent += seg.percent;
-            });
-            
-            setTimeout(() => {
-                chartCircle.style.transform = 'translate(-50%, -50%) scale(1.1)';
-                setTimeout(() => {
-                    chartCircle.style.transform = 'translate(-50%, -50%) scale(1)';
-                }, 500);
-            }, 500);
-            
-            // Particles.js
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#6e42e5"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.3,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#6e42e5",
-                        "opacity": 0.1,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
+                link.addEventListener('click', (e) => {
+                    if (link.getAttribute('href').startsWith('#')) {
+                        nav.classList.remove('active');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                        document.body.style.overflow = '';
                     }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "repulse"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 400,
-                            "line_linked": {
-                                "opacity": 1
+                });
+            });
+            
+            const token3d = document.querySelector('.token-3d');
+            if (token3d) {
+                window.addEventListener('mousemove', (e) => {
+                    const x = e.clientX / window.innerWidth;
+                    const y = e.clientY / window.innerHeight;
+                    
+                    const perspective = 1000; 
+                    const rotateX = (y * 40 - 20);
+                    const rotateY = (x * 40 - 20);
+                    const translateZ = 50;
+
+                    token3d.style.transform = `perspective(${perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
+                });
+            }
+            
+            const chartCircle = document.querySelector('.chart-circle');
+            if (chartCircle && chartCircle.querySelector('img')) {
+                 setTimeout(() => {
+                    chartCircle.style.transition = 'transform 0.5s ease-in-out';
+                    chartCircle.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        chartCircle.style.transform = 'scale(1)';
+                    }, 500);
+                }, 500);
+            }
+            
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
                             }
                         },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
+                        "color": {
+                            "value": "#6e42e5"
                         },
-                        "repulse": {
-                            "distance": 100,
-                            "duration": 0.4
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
                         },
-                        "push": {
-                            "particles_nb": 4
+                        "opacity": {
+                            "value": 0.3,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
                         },
-                        "remove": {
-                            "particles_nb": 2
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#6e42e5",
+                            "opacity": 0.1,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
                         }
-                    }
-                },
-                "retina_detect": true
-            });
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "repulse"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 400,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 100,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
             
-            // Animate stats
             const statValues = document.querySelectorAll('.stat-value');
             const targetValues = [42.7, 12.9, 6.3];
-            const increments = [0.1, 0.05, 0.02];
             
-            statValues.forEach((el, i) => {
+            const animateStat = (el, target, isPercent = false, decimals = 1) => {
                 let current = 0;
-                const increment = increments[i];
-                const target = targetValues[i];
+                const duration = 1500;
+                const stepTime = 20;
+                const steps = duration / stepTime;
+                const increment = target / steps;
+                
                 const interval = setInterval(() => {
                     current += increment;
                     if (current >= target) {
                         clearInterval(interval);
                         current = target;
                     }
-                    el.textContent = (i === 2 ? current.toFixed(1) : Math.floor(current).toLocaleString()) + (i === 2 ? '%' : '');
-                }, 20);
+                    let displayValue = isPercent ? current.toFixed(decimals) + '%' : Math.floor(current).toLocaleString() + 'M';
+                    if (el.textContent.includes('Holders')) displayValue = Math.floor(current).toLocaleString() + 'K';
+                    el.textContent = displayValue;
+
+                }, stepTime);
+            };
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statValues.forEach((el, i) => {
+                            const label = el.nextElementSibling.textContent.toLowerCase();
+                            if (label.includes('tvl')) animateStat(el, targetValues[0], false);
+                            else if (label.includes('holders')) animateStat(el, targetValues[1], false);
+                            else if (label.includes('apy')) animateStat(el, targetValues[2], true);
+                        });
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const heroStats = document.querySelector('.hero-stats');
+            if (heroStats) {
+                statsObserver.observe(heroStats);
+            }
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1
             });
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
         });
     </script>
 </body>
