@@ -46,7 +46,7 @@
             color: var(--light);
             overflow-x: hidden;
             position: relative;
-            padding-top: var(--header-height);
+            padding-top: calc(var(--header-height) + 60px); /* Added space for button row */
         }
         
         body::before {
@@ -82,6 +82,7 @@
             top: 0;
             left: 0;
             width: 100%;
+            box-sizing: border-box;
             z-index: 1000;
             height: var(--header-height);
             background-color: transparent;
@@ -101,6 +102,7 @@
             font-weight: 700;
             color: white;
             text-decoration: none;
+            white-space: nowrap;
         }
         
         .logo i {
@@ -114,11 +116,42 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Button Row */
+        .button-row {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            backdrop-filter: blur(5px);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .button-row.scrolled {
+            background-color: rgba(10, 11, 31, 0.85);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
         }
         
         nav a {
@@ -128,6 +161,7 @@
             font-size: 1.1rem;
             position: relative;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
         nav a::after {
@@ -152,6 +186,7 @@
         .header-btns {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
         }
         
         .btn {
@@ -163,6 +198,7 @@
             font-size: 1rem;
             border: none;
             font-family: 'Kanit', sans-serif;
+            white-space: nowrap;
         }
         
         .btn-primary {
@@ -196,6 +232,7 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            margin-left: 1rem;
         }
         
         /* Hero Section */
@@ -492,7 +529,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
+}
         
         .roadmap.visible {
             opacity: 1;
@@ -664,7 +701,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark)) 100%;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -733,7 +770,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient to right, var(--primary), var(--secondary);
         }
         
         .footer-col ul {
@@ -802,13 +839,148 @@
         }
         
         /* Responsive */
+        @media (max-width: 1200px) {
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .header-btns {
+                gap: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-token {
+                width: 350px;
+                height: 350px;
+            }
+            
+            .token-3d {
+                width: 250px;
+                height: 250px;
+            }
+        }
+        
         @media (max-width: 768px) {
             body {
-                padding-top: 60px;
+                padding-top: 120px;
             }
+            
             header {
                 height: 60px;
                 padding: 0.5rem 5%;
+            }
+            
+            .button-row {
+                top: 60px;
+                padding: 0.5rem 5%;
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--darker);
+                flex-direction: column;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                gap: 0;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 2rem;
+                gap: 1rem;
+                width: 100%;
+            }
+            
+            .header-btns {
+                margin-top: auto;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+
+            .header-btns .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 4rem;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-token {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin: 2rem auto;
+            }
+            
+            .tokenomics-container {
+                flex-direction: column;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding: 1.5rem 0 1.5rem 3rem;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 3rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item::after {
+                left: 10px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+                left: 10px;
             }
         }
         
@@ -837,6 +1009,12 @@
             .cta h2 {
                 font-size: 2.2rem;
             }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -857,19 +1035,24 @@
                 <li><a href="#tokenomics">Tokenomics</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#team">Team</a></li>
-                <li><a href="#">Whitepaper</a></li>
             </ul>
             
-            <div class="header-btns">
-                <a href="zombie_nft.html" class="btn btn-primary">Zombi NFT</a>
+            <!-- <div class="header-btns">
+                <a href="zombie_nft.html" class="btn btn-primary">Zombie NFT</a>
                 <button class="btn btn-outline">Connect Wallet</button>
-            </div>
+            </div> -->
         </nav>
         
         <button class="mobile-menu-btn" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
         </button>
     </header>
+
+    <!-- Button Row -->
+    <div class="button-row" id="buttonRow">
+        <a href="zombie_nft.html" class="btn btn-primary">Zombie NFT</a>
+        <button class="btn btn-outline">Connect Wallet</button>
+    </div>
     
     <!-- Hero Section -->
     <section class="hero">
@@ -919,7 +1102,6 @@
                 <p>Multi-signature vaults, insurance coverage, and regular smart contract audits to protect your assets.</p>
             </div>
             
-            
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-coins"></i>
@@ -943,7 +1125,6 @@
                 <h3>Low Fees</h3>
                 <p>Our efficient architecture keeps fees minimal, maximizing your returns.</p>
             </div>
-            
         </div>
     </section>
     
@@ -1041,40 +1222,39 @@
     
     <!-- Team -->
     <section class="team" id="team">
-    <div class="section-header">
-        <h2>Our Team</h2>
-        <p>Industry veterans with decades of combined experience in blockchain, finance, and technology.</p>
-    </div>
-    
-    <div class="team-grid">
-        <div class="team-member" style="max-width: 300px; margin: 0 auto;">
-            <div class="member-image" style="width: 100%; height: auto; border-radius: 50%; overflow: hidden;">
-                <img src="https://avatars.githubusercontent.com/u/42341174?v=4" alt="Team Member" style="width: 100%; height: auto; max-width: 300px; max-height: 300px; object-fit: cover;">
+        <div class="section-header">
+            <h2>Our Team</h2>
+            <p>Industry veterans with decades of combined experience in blockchain, finance, and technology.</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-member" style="max-width: 300px; margin: 0 auto;">
+                <div class="member-image" style="width: 100%; height: auto; border-radius: 50%; overflow: hidden;">
+                    <img src="https://avatars.githubusercontent.com/u/42341174?v=4" alt="Team Member" style="width: 100%; height: auto; max-width: 300px; max-height: 300px; object-fit: cover;">
+                </div>
+                <div class="member-info" style="text-align: center;">
+                    <h3>pgschdev</h3>
+                    <p>Founder & CTO</p>
+                    <div class="member-social">
+                        <a href="https://x.com/pgschdev"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/PGSch"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="member-info" style="text-align: center;">
-                <h3>pgschdev</h3>
-                <p>Founder & CTO</p>
-                <div class="member-social">
-                    <a href="https://x.com/pgschdev"><i class="fab fa-twitter"></i></a>
-                    <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
-                    <a href="https://github.com/PGSch"><i class="fab fa-github"></i></a>
+            <div class="team-member" style="max-width: 300px; margin: 0 auto;">
+                <div class="member-image" style="width: 100%; height: auto; border-radius: 50%; overflow: hidden;">
+                    <img src="images/supernovablackhole_red.png" alt="Team Member" style="width: 100%; height: auto; max-width: 300px; max-height: 300px; object-fit: cover;">
+                </div>
+                <div class="member-info" style="text-align: center;">
+                    <h3>MOXP</h3>
+                    <p>Founder & CEO</p>
+                    <div class="member-social">
+                        <a href="https://x.com/moxp123"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="team-member" style="max-width: 300px; margin: 0 auto;">
-            <div class="member-image" style="width: 100%; height: auto; border-radius: 50%; overflow: hidden;">
-                <img src="images/supernovablackhole_red.png" alt="Team Member" style="width: 100%; height: auto; max-width: 300px; max-height: 300px; object-fit: cover;">
-            </div>
-            <div class="member-info" style="text-align: center;">
-                <h3>MOXP</h3>
-                <p>Founder & CEO</p>
-                <div class="member-social">
-                    <a href="https://x.com/moxp123"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
     
     <!-- CTA -->
     <section class="cta">
@@ -1159,6 +1339,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('header');
+            const buttonRow = document.getElementById('buttonRow');
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const nav = document.getElementById('nav');
             const sections = document.querySelectorAll('section, footer');
@@ -1167,8 +1348,10 @@
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
+                    buttonRow.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
+                    buttonRow.classList.remove('scrolled');
                 }
             });
 
